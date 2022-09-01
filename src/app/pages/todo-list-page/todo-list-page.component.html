@@ -1,0 +1,6 @@
+<div class="container">
+  <div class="todo">
+    <app-header title="Todo"></app-header>
+    <app-add-input (addTodo)="addTodo($event)"></app-add-input>
+    <app-todo-list [(todos)]="todos"></app-todo-list>
+</div>

@@ -1,0 +1,18 @@
+<div class="todolist-container">
+  <div class="todos-container">
+      <div>
+        <div
+          *ngFor="let todo of todos; let index = index"
+          class="todo-item"
+          [class.todo-item-active]="todo.completed"
+          (click)="completeTodo(index)"
+          data-testid="todo-item"
+        >
+          {{todo.task}}
+        </div>
+      </div>
+  </div>
+  <div>
+      <app-todo-footer [numIncompleteTasks]="numIncompleteTasks"></app-todo-footer>
+  </div>
+</div>
