@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { FollowerService } from 'src/app/shared/services/followers/followers.service';
+import { FollowersService } from 'src/app/shared/services/followers/followers.service';
 
 @Component({
   selector: 'app-follower-list',
@@ -13,12 +13,12 @@ export class FollowerListComponent implements OnInit {
   fetchFollowersError: any;
 
   constructor(
-    private followerService: FollowerService,
+    private FollowersService: FollowersService,
     private cd: ChangeDetectorRef,
   ) { }
 
   ngOnInit(): void {
-    this.followerService.fetchFollowers().subscribe((followers) => {
+    this.FollowersService.fetchFollowers().subscribe((followers) => {
       this.followers = followers;
       this.fetchFollowersError = null;
       this.cd.markForCheck();

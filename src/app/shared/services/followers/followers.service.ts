@@ -5,7 +5,7 @@ import { map } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class FollowerService {
+export class FollowersService {
 
   constructor(
     private http: HttpClient,
