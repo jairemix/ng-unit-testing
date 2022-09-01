@@ -8,6 +8,6 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 })
 export class HeaderComponent {
 
-  @Input() title: string;
+  @Input() title!: string;
 
 }

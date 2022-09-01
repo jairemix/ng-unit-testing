@@ -8,10 +8,10 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnI
 })
 export class TodoListComponent implements OnInit, OnChanges {
 
-  @Input() todos: any[];
+  @Input() todos!: any[];
   @Output() todosChange = new EventEmitter();
 
-  numIncompleteTasks: number;
+  numIncompleteTasks!: number;
 
   constructor() { }
 

@@ -9,7 +9,7 @@ import { FollowersService } from 'src/app/shared/services/followers/followers.se
 })
 export class FollowerListComponent implements OnInit {
 
-  followers: any[];
+  followers?: any[];
   fetchFollowersError: any;
 
   constructor(
@@ -18,14 +18,17 @@ export class FollowerListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.FollowersService.fetchFollowers().subscribe((followers) => {
-      this.followers = followers;
-      this.fetchFollowersError = null;
-      this.cd.markForCheck();
-    }, (error) => {
-      // console.log('error', error);
-      this.fetchFollowersError = error;
-      this.cd.markForCheck();
+    this.FollowersService.fetchFollowers().subscribe({
+      next: (followers) => {
+        this.followers = followers;
+        this.fetchFollowersError = null;
+        this.cd.markForCheck();
+      },
+      error: (error) => {
+        // console.log('error', error);
+        this.fetchFollowersError = error;
+        this.cd.markForCheck();
+      },
     });
   }
 

@@ -23,7 +23,7 @@ export class AddInputComponent implements OnInit {
     if (!this.formControl.valid) {
       return;
     }
-    const newTodo = this.createTodo(this.formControl.value)
+    const newTodo = this.createTodo(this.formControl.value!)
     this.formControl.setValue('');
     this.addTodo.emit(newTodo);
   }

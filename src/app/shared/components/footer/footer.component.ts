@@ -9,7 +9,7 @@ import { ChangeDetectionStrategy, Component, Input, OnInit, ViewEncapsulation } 
 })
 export class FooterComponent implements OnInit {
 
-  @Input() numIncompleteTasks: number;
+  @Input() numIncompleteTasks!: number;
 
   constructor() { }
 
