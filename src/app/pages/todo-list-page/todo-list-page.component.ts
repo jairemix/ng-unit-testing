@@ -19,11 +19,13 @@ export class TodoListPageComponent implements OnInit {
   }
 
   addTodo(todo: Todo) {
-    this.todosService.addTodo(todo);
+    // TODO: handle success/failure
+    this.todosService.addTodo(todo).subscribe();
   }
 
   updateTodo(todo: Todo) {
-    this.todosService.updateTodo(todo);
+    // TODO: handle success/failure
+    this.todosService.updateTodo(todo).subscribe();
   }
 
 }

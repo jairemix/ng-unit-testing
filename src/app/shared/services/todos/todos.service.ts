@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { Todo } from '../../models/todo.model';
 
 @Injectable({
@@ -11,14 +11,15 @@ export class TodosService {
 
   constructor() { }
 
-  // TODO: make asynchronous in the future
-  addTodo(todo: Todo) {
-    const todos = [...this.todos$.value, todo];
-    this.todos$.next(todos);
+  // method returns Observable in case it needs to be async in the future
+  addTodo(todo: Todo): Observable<Todo[]> {
+    const newTodos = [...this.todos$.value, todo];
+    this.todos$.next(newTodos);
+    return of(newTodos);
   }
 
-  // TODO: make asynchronous in the future
-  updateTodo(todo: Todo) {
+  // method returns Observable in case it needs to be async in the future
+  updateTodo(todo: Todo): Observable<Todo[]> {
     const todos = this.todos$.value;
     const index = todos.findIndex((t) => t.id === todo.id);
     if (index >= 0) {
@@ -28,8 +29,9 @@ export class TodosService {
         ...todos.slice(index + 1),
       ];
       this.todos$.next(newTodos);
+      return of(newTodos);
     } else {
-      throw new Error('TODO_NOT_FOUND');
+      return throwError(() => new Error('TODO_NOT_FOUND'));
     }
   }
 
