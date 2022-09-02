@@ -5,12 +5,14 @@ import { TodoListPageComponent } from "./todo-list-page.component";
 import { AddInputComponent } from './add-input/add-input.component';
 import { ReactiveFormsModule } from "@angular/forms";
 import { TodoListComponent } from './todo-list/todo-list.component';
+import { TodoItemComponent } from './todo-item/todo-item.component';
 
 @NgModule({
   declarations: [
     TodoListPageComponent,
     AddInputComponent,
     TodoListComponent,
+    TodoItemComponent,
   ],
   imports: [
     SharedModule,

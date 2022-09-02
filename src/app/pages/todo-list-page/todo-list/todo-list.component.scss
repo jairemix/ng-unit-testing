@@ -14,14 +14,3 @@
   overflow: auto;
   height: 90%;
 }
-
-.todo-item {
-  border-bottom: .05rem solid rgba(0, 0, 0, 0.082);
-  padding: 1rem 0;
-  cursor: pointer;
-}
-
-.todo-item-active {
-  text-decoration: line-through;
-  color: grey
-}

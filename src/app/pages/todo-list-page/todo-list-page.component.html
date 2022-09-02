@@ -2,5 +2,6 @@
   <div class="todo">
     <app-header title="Todo"></app-header>
     <app-add-input (addTodo)="addTodo($event)"></app-add-input>
-    <app-todo-list [(todos)]="todos"></app-todo-list>
+    <app-todo-list [todos]="(todo$ | async)!" (updateTodo)="updateTodo($event)"></app-todo-list>
+  </div>
 </div>

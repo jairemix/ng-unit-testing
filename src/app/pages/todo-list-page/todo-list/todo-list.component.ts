@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
+import { Todo } from 'src/app/shared/models/todo.model';
 
 @Component({
   selector: 'app-todo-list',
@@ -8,8 +9,8 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnI
 })
 export class TodoListComponent implements OnInit, OnChanges {
 
-  @Input() todos!: any[];
-  @Output() todosChange = new EventEmitter();
+  @Input() todos!: Todo[];
+  @Output() updateTodo = new EventEmitter<Todo>();
 
   numIncompleteTasks!: number;
 
@@ -22,17 +23,11 @@ export class TodoListComponent implements OnInit, OnChanges {
     this.numIncompleteTasks = this.todos.filter(todo => !todo.completed).length;
   }
 
-  completeTodo(index: number) {
-    const todo = this.todos[index];
-    const completedTodo = {
+  toggleCompletion(todo: Todo) {
+    this.updateTodo.emit({
       ...todo,
       completed: !todo.completed,
-    };
-    this.todosChange.emit([
-      ...this.todos.slice(0, index),
-      completedTodo,
-      ...this.todos.slice(index + 1),
-    ]);
+    });
   }
 
 }

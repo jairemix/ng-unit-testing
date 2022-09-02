@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { Todo } from 'src/app/shared/models/todo.model';
 import { v4 } from "uuid"
 
 @Component({
@@ -10,7 +11,7 @@ import { v4 } from "uuid"
 })
 export class AddInputComponent implements OnInit {
 
-  @Output() addTodo = new EventEmitter();
+  @Output() addTodo = new EventEmitter<Todo>();
 
   formControl = new FormControl('', [Validators.required]);
 
@@ -28,7 +29,7 @@ export class AddInputComponent implements OnInit {
     this.addTodo.emit(newTodo);
   }
 
-  createTodo(title: string) {
+  createTodo(title: string): Todo {
     return {
       id: v4(),
       task: title,

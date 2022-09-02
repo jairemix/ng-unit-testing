@@ -1,0 +1,7 @@
+<div
+  class="todo-item"
+  [class.todo-item-active]="todo.completed"
+  (click)="toggleCompletion.emit()"
+>
+  {{todo.task}}
+</div>

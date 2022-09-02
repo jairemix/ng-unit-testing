@@ -2,14 +2,8 @@
   <div class="todos-container">
       <div>
         <!-- data-testid="todo-item" -->
-        <div
-          *ngFor="let todo of todos; let index = index"
-          class="todo-item"
-          [class.todo-item-active]="todo.completed"
-          (click)="completeTodo(index)"
-        >
-          {{todo.task}}
-        </div>
+        <app-todo-item *ngFor="let todo of todos" [todo]="todo" (toggleCompletion)="toggleCompletion(todo)">
+        </app-todo-item>
       </div>
   </div>
   <div>
