@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Todo } from 'src/app/shared/models/todo.model';
+import { TodosService } from 'src/app/shared/services/todos/todos.service';
 
 @Component({
   selector: 'app-todo-list-page',
@@ -7,18 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoListPageComponent implements OnInit {
 
-  todos: any[] = [];
+  todo$ = this.todosService.getTodos$();
 
-  constructor() { }
+  constructor(
+    private todosService: TodosService,
+  ) { }
 
   ngOnInit(): void {
   }
 
-  addTodo(todo: any) {
-    this.todos = [
-      ...this.todos,
-      todo,
-    ];
+  addTodo(todo: Todo) {
+    this.todosService.addTodo(todo);
+  }
+
+  updateTodo(todo: Todo) {
+    this.todosService.updateTodo(todo);
   }
 
 }

@@ -3,10 +3,10 @@
       <div>
         <!-- data-testid="todo-item" -->
         <div
-          *ngFor="let todo of todos; let index = index"
+          *ngFor="let todo of todos"
           class="todo-item"
           [class.todo-item-active]="todo.completed"
-          (click)="completeTodo(index)"
+          (click)="toggleCompletion(todo)"
         >
           {{todo.task}}
         </div>
