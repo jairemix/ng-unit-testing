@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FollowerListPageComponent } from './follower-list-page.component';
+import { FollowerItemComponent } from './follower-item.component';
 
-// describe('FollowerListPageComponent', () => {
-//   let component: FollowerListPageComponent;
-//   let fixture: ComponentFixture<FollowerListPageComponent>;
+// describe('FollowerItemComponent', () => {
+//   let component: FollowerItemComponent;
+//   let fixture: ComponentFixture<FollowerItemComponent>;
 
 //   beforeEach(async () => {
 //     await TestBed.configureTestingModule({
-//       declarations: [ FollowerListPageComponent ]
+//       declarations: [ FollowerItemComponent ]
 //     })
 //     .compileComponents();
 
-//     fixture = TestBed.createComponent(FollowerListPageComponent);
+//     fixture = TestBed.createComponent(FollowerItemComponent);
 //     component = fixture.componentInstance;
 //     fixture.detectChanges();
 //   });

@@ -1,0 +1,22 @@
+.follower-item {
+  display: flex;
+  padding: 1rem 0;
+  border-bottom: .05rem solid rgba(0, 0, 0, 0.082);
+  padding: 1rem 0;
+}
+.followers-details {
+  margin-left: 1.25rem;
+}
+
+.follower-item-name {
+  display: flex;
+}
+
+.follower-item-name h4 {
+  margin-right: 0.5rem;
+}
+
+.follower-item img {
+  border-radius: 50%;
+  width: 4rem
+}

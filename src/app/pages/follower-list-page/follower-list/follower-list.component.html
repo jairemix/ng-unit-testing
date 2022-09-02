@@ -2,18 +2,8 @@
   <p *ngIf="fetchFollowersError">There was an error fetching followers. Please try again later.</p>
   <div>
     <!-- data-testid="follower-item-{{index}}" -->
-    <div
-      *ngFor="let follower of followers; let index = index"
-      class="follower-item"
-    >
-      <img alt="follower: {{follower.name.first}} {{follower.name.last}}" [src]="follower.picture.large" />
-      <div class="followers-details">
-          <div class="follower-item-name">
-              <h4>{{follower.name.first}}</h4> <h4>{{follower.name.last}}</h4>
-          </div>
-          <p>{{follower.login.username}}</p>
-      </div>
-    </div>
+    <app-follower-item *ngFor="let follower of followers" [follower]="follower">
+    </app-follower-item>
   </div>
   <app-footer>
     <a [routerLink]="['..']">Go Back</a>
